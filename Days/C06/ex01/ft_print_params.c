@@ -15,7 +15,7 @@
 
 void	ft_putstr(char *str)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	while (str[c] != '\0')
@@ -23,7 +23,7 @@ void	ft_putstr(char *str)
 		write (1, &str[c], 1);
 		c++;
 	}
-		write (1, "\n", 1);
+	write (1, "\n", 1);
 }
 
 void	ft_params(char **argv)
@@ -38,7 +38,7 @@ void	ft_params(char **argv)
 	}
 }
 
-int		main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	i;
 

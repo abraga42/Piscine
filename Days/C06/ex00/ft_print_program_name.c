@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 11:00:11 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/15 11:27:59 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/15 20:57:14 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putstr(char **str)
 	}
 }
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	(void) argc;
 	(void) argv;

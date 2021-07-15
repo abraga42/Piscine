@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:25:59 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/15 17:08:28 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/15 20:55:37 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@ void	ft_putstr(char *str)
 	c = 0;
 	while (str[c] != '\0')
 	{
-		write (1, &c, 1);
+		write (1, &str[c], 1);
+		c++;
 	}
 	write (1, "\n", 1);
 }
 
-void	ft_swap(char *a, char *b)
+void	ft_swap(char **a, char **b)
 {
 	char	*temp;
 
-	temp = a;
-	a = b;
-	b = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -38,27 +39,37 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while ((s1[i] != '\0' && s2[i] != '\0') && s1[i] == s2[i])
+	while ((s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] - s2[i] != 0)
+			return (s1[i] - s2[i]);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	j = 2;
-	if (argc >= 2)
+	while (i < argc)
 	{
-		if (i 0 > j)
+		j = i;
+		while (j < argc)
 		{
-			ft_swap(argv[i], argv[j]);
+			if (ft_strcmp(argv[i], argv[j]) > 0)
+				ft_swap(&argv[i], &argv[j]);
+			j++;
 		}
-		else
-			ft_strcmp(argv[i], argv[j]);
+		i++;
+	}
+	i = 1;
+	while (i < argc)
+	{
 		ft_putstr(argv[i]);
+		i++;
 	}
 	return (0);
 }
