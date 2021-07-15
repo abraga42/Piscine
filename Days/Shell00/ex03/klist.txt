@@ -1,0 +1,5 @@
+Credentials cache: API:B50F4506-929B-4E78-A3BA-6898D0C772C4
+        Principal: abraga@42.FR
+
+  Issued                Expires               Principal
+Jun 28 17:40:48 2021  Jul  5 17:40:40 2021  krbtgt/42.FR@42.FR
