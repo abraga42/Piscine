@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 17:05:35 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/18 21:29:03 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/18 21:31:43 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,12 @@ int	ft_itoa_base(char *nbr, char *base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	ft_atoi_base(nbr, base_from); // return nbr in decimal
-	ft_itoa_base(nbr, base_to); // return *str
-
 	nbr = malloc(sizeof(int) * (max - min)); // nbr doit tenir dans un int (lui-meme compris entre min et max)
 	if (!nbr)
 		return (NULL);
+	
+	ft_atoi_base(nbr, base_from); // return nbr in decimal
+	ft_itoa_base(nbr, base_to); // have to return *str (here : *nbr)
+
+	free(nbr);
 }
