@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 22:58:45 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/17 23:25:47 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/20 23:22:19 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	*ft_range(int min, int max)
 {
-	int	*tab = NULL;
+	int	*tab;
 	int	i;
 
+	tab = NULL;
 	i = 0;
 	if (min >= max)
 		return (NULL);

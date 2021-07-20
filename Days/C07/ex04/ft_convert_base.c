@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 17:05:35 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/20 19:17:28 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/20 23:52:12 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' ||
-		c == ' ')
+	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
 	return (0);
 }
@@ -36,10 +35,12 @@ int	ft_check_base(char *base)
 	int	j;
 
 	i = 0;
+	if (ft_strlen(base) <= 1)
+		return (0);
 	while (base[i])
 	{
 		if (base[i] == '-' || base[i] == '+' || (base[i] >= 9
-			&& base[i] <= 13) || base[i] == 32)
+				&& base[i] <= 13) || base[i] == 32)
 			return (0);
 		j = i + 1;
 		while (base[j])
@@ -64,7 +65,7 @@ int	ft_index(char c, char *base)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_atoi_base(char *str, char *base)
@@ -78,7 +79,7 @@ int	ft_atoi_base(char *str, char *base)
 	mult = 1;
 	nbr = 0;
 	len = ft_strlen(base);
-	while (ft_isspace(str[i]))
+	while (ft_isspace(str[i]) == 1)
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -86,13 +87,10 @@ int	ft_atoi_base(char *str, char *base)
 			mult = mult * -1;
 		i++;
 	}
-	if (ft_check_base(base) && i != -1)
+	while (str[i] && ft_index(str[i], base) != -1)
 	{
-		while (str[i] && ft_index(str[i], base) != -1)
-		{
-			nbr *= len + ft_index(str[i], base);
-			i++;
-		}
+		nbr = (nbr * len) + ft_index(str[i], base);
+		i++;
 	}
 	return (nbr * mult);
 }
