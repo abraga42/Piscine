@@ -6,7 +6,7 @@
 /*   By: abraga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:04:17 by abraga            #+#    #+#             */
-/*   Updated: 2021/07/22 14:37:45 by abraga           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:28:33 by abraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	ft_wordcount(char *str, char *charset)
 		else
 			i++;
 	}
-	printf("la valeur sans separateur : %d\n", count2);
 	return (count2);
 }
 
